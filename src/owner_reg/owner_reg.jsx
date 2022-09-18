@@ -19,7 +19,8 @@ export default function Ownereg() {
       password,
       orgnization
     });
-    res.data && window.location.replace("/ownerlogin");
+    res.data /* && window.location.replace("/ownerlogin") */;
+    console.log(res.data)
     }catch(error){
         console.log(error)
         
