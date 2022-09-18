@@ -1,23 +1,54 @@
 import logo from './logo.svg';
 import './App.css';
+import Check from './check';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Userlogin from './userlogin/userlogin';
+import Ownereg from './owner_reg/owner_reg';
+import Ownerlogin from './ownerlogin/ownerlogin';
+import Userreg from './userregistrtion/user_reg';
+import Ownerhome from './ownerhome/ownerhome';
+import Freelancehome from './freelancer/freelancehome';
+import Write from './components/write/write';
+import View_pages from './components/view_page/view_page';
+import View_applied from './viewappliedpage/viewappliedpage';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Check/>}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/userlogin" element={<Userlogin/>}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/ownerlogin" element={<Ownerlogin/>}></Route>
+      </Routes>
+       <Routes>
+        <Route path="/userreg" element={<Userreg/>}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/ownereg" element={<Ownereg/>}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/ownerhome" element={<Ownerhome/>}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/home" element={<Freelancehome/>}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/write" element={< Write/>}></Route>
+      </Routes>
+       <Routes>
+        <Route path="/appliedjob" element={<View_pages/>}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/ownerlist" element={<View_applied/>}></Route>
+      </Routes>
+     
+      </BrowserRouter>
     </div>
   );
 }
