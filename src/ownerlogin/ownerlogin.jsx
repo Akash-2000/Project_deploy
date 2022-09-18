@@ -2,9 +2,11 @@ import React from "react"
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { useContext } from "react";
+import {useNavigate} from 'react-router-dom';
 import axios from "axios";
 import { Context } from "../context/context";
 export default function Ownerlogin() {
+    let Navigate = useNavigate()
   const userRef = useRef();
   const passwordRef = useRef();
   const { dispatch, isfetching } = useContext(Context);
@@ -17,7 +19,7 @@ export default function Ownerlogin() {
         password: passwordRef.current.value,
       });
       dispatch({ type: "LOGIN_SUCESS", payload: res.data });
-      res.data && window.location.replace("/ownerhome");
+      res.data && Navigate("/ownerhome");
     } catch (error) {
       console.log(error)
       dispatch({ type: "LOGIN_fAILURE" });
