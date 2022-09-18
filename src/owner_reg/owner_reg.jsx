@@ -1,7 +1,4 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-import { useRef } from "react";
-import { useContext } from "react";
 import { useState } from "react"
 import axios from "axios";
 
@@ -11,12 +8,10 @@ export default function Ownereg() {
   const[password,setpassword]= useState("")
   const[orgnization,setorgnization]= useState("")
   const[confirmpassword,setconfirmpassword]=useState("")
-  const [error,seterror]=useState(false)
-
+  
   const handlesubmit = async (e) => {
     e.preventDefault()
-    seterror(false);
-    try{
+      try{
        
         const res = await axios.post(`https://revildo1.herokuapp.com/api/ownerauth/register`,{
       username,
@@ -27,7 +22,7 @@ export default function Ownereg() {
     res.data && window.location.replace("/ownerlogin");
     }catch(error){
         console.log(error)
-        seterror(true)
+        
     }
      
   }
@@ -86,6 +81,7 @@ return (
           autoComplete='off'
           onChange={e=>setconfirmpassword(e.target.value)}
         />
+        {console.log(confirmpassword)}
         </div>
         <button  type="submitbutton"className=" btn btn-primary loginbutton" >
           Register

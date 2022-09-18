@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Check from './check';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -10,8 +10,8 @@ import Userreg from './userregistrtion/user_reg';
 import Ownerhome from './ownerhome/ownerhome';
 import Freelancehome from './freelancer/freelancehome';
 import Write from './components/write/write';
-import View_pages from './components/view_page/view_page';
-import View_applied from './viewappliedpage/viewappliedpage';
+import ViewPages from './components/view_page/view_page';
+import ViewApplied from './viewappliedpage/viewappliedpage';
 function App() {
   return (
     <div className="App">
@@ -42,10 +42,10 @@ function App() {
         <Route path="/write" element={< Write/>}></Route>
       </Routes>
        <Routes>
-        <Route path="/appliedjob" element={<View_pages/>}></Route>
+        <Route path="/appliedjob" element={<ViewPages/>}></Route>
       </Routes>
       <Routes>
-        <Route path="/ownerlist" element={<View_applied/>}></Route>
+        <Route path="/ownerlist" element={<ViewApplied/>}></Route>
       </Routes>
      
       </BrowserRouter>

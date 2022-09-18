@@ -1,7 +1,4 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-import { useRef } from "react";
-import { useContext } from "react";
 import { useState } from "react"
 import axios from "axios";
 
@@ -10,11 +7,9 @@ export default function Userreg() {
   const[email,setemail]= useState("")
   const[password,setpassword]= useState("")
   const[qualifcation,setqualifcation]= useState("")
-  const[confirmpassword,setconfirmpassword]=useState("")
-  const [error,seterror]=useState(false)
   const handlesubmit = async (e) => {
     e.preventDefault()
-    seterror(false);
+   
     try{
        
         const res = await axios.post(`https://revildo1.herokuapp.com/api/auth/register`,{
@@ -26,7 +21,7 @@ export default function Userreg() {
     res.data && window.location.replace("/userlogin");
     }catch(error){
         console.log(error)
-        seterror(true)
+   
     }
      
   }
@@ -75,16 +70,6 @@ export default function Userreg() {
           placeholder="Enter Password"
           autoComplete='off'
          onChange={e=>setpassword(e.target.value)}
-        />
-        </div>
-        <div className='mb-3 w-100'> 
-        <label className='form-label'>Confirm password</label>
-        <input
-          type="password"
-          className="logininput form-control"
-          placeholder="confirm Password"
-          autoComplete='off'
-          onChange={e=>setconfirmpassword(e.target.value)}
         />
         </div>
         <button  type="submitbutton"className=" btn btn-primary loginbutton" >

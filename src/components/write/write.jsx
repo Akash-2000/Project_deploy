@@ -31,7 +31,7 @@ export default function Write() {
           } catch (err) {}
           try{
           
-            const res = await axios.post("https://revildo1.herokuapp.com/api/write",newpost)
+             await axios.post("https://revildo1.herokuapp.com/api/write",newpost)
           
             window.location.replace("/ownerhome")
         }catch(err){
@@ -45,7 +45,7 @@ export default function Write() {
       <Topbar/>
       
         {file &&(
-          <img  className="writeimg" src={URL.createObjectURL(file)}/>
+          <img  className="writeimg" src={URL.createObjectURL(file)} alt="img"/>
       ) }
      
       <div>
