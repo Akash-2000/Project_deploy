@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from "react"
 import axios from "axios";
+import {useNavigate} from 'react-router-dom';
 
 export default function Ownereg() {
     const[username,setusername]= useState("")
@@ -8,7 +9,7 @@ export default function Ownereg() {
   const[password,setpassword]= useState("")
   const[orgnization,setorgnization]= useState("")
   const[confirmpassword,setconfirmpassword]=useState("")
-  
+   let Navigate = useNavigate()
   const handlesubmit = async (e) => {
     e.preventDefault()
       try{
@@ -19,8 +20,7 @@ export default function Ownereg() {
       password,
       orgnization
     });
-    console.log(res)
-    /* res.data */ /* && window.location.replace("/ownerlogin") */;
+     res.data  &&  Navigate("/ownerlogin");
     }catch(error){
         console.log(error)
         

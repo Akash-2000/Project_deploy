@@ -1,12 +1,14 @@
 import React from 'react'
 import { useState } from "react"
 import axios from "axios";
+import {useNavigate} from 'react-router-dom';
 
 export default function Userreg() {
   const[username,setusername]= useState("")
   const[email,setemail]= useState("")
   const[password,setpassword]= useState("")
   const[qualifcation,setqualifcation]= useState("")
+   let Navigate = useNavigate()
   const handlesubmit = async (e) => {
     e.preventDefault()
    
@@ -18,7 +20,7 @@ export default function Userreg() {
       password,
       qualifcation     
     });
-    res.data && window.location.replace("/userlogin");
+    res.data && Navigate("/userlogin");
     }catch(error){
         console.log(error)
    

@@ -2,6 +2,7 @@ import { useState } from "react"
 import "./write.css"
 import axios from "axios"
 import { useContext } from "react"
+import {useNavigate} from 'react-router-dom';
 import {Context} from "../../context/context"
 import Topbar from "../topbar/topbar"
 export default function Write() {
@@ -9,6 +10,7 @@ export default function Write() {
     const [desc,setdesc] = useState("")
       const [file,setfile] = useState(null)
     const {user} = useContext(Context)
+    let Navigate = useNavigate()
  const handlesubmit = async(e)=>{
 
         e.preventDefault();
@@ -33,7 +35,7 @@ export default function Write() {
           
              await axios.post("https://revildo1.herokuapp.com/api/write",newpost)
           
-            window.location.replace("/ownerhome")
+             Navigate("/ownerhome")
         }catch(err){
 
         }
