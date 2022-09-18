@@ -82,7 +82,6 @@ return (
           autoComplete='off'
           onChange={e=>setconfirmpassword(e.target.value)}
         />
-        {console.log(confirmpassword)}
         </div>
         <button  type="submitbutton"className=" btn btn-primary loginbutton" >
           Register
